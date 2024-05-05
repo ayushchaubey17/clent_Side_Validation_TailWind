@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class=" bg-blue-100">
+
+    <h1 class="text-center text-xl font-bold mt-16">Client side validation with tailwind</h1>
+
+    <main class="  min-h-screen  flex items-center justify-center text-gray-500 text-sm">
+      
+      
+        <form novalidate
+          class="group bg-white shadow-lg rounded-md p-5 md:p-10 flex flex-col w-11/12 max-w-lg"
+        >
+          <label for="email" class="mb-5">
+            <span>Email</span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="peer w-full rounded border border-gray-300 bg-inherit p-3 shadow shadow-gray-100 mt-2 appearance-none outline-none text-neutral-800  invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 valid:border-green-500"
+              placeholder="enter your email"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            
+            />
+            <span class="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                Please enter a valid email address
+              </span>
+          </label>
+          <label for="password" class="mb-5">
+            <span>Password</span>
+            <input
+              type="password"
+              name="password"
+              id="password" minlength="9"
+              class="peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 valid:border-green-500  w-full rounded border border-gray-300 bg-inherit p-3 shadow shadow-gray-100 mt-2 appearance-none outline-none text-neutral-800"
+              placeholder="your password"
+              required
+            
+            />
+            <span class="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                    Your Password must consist more than 8
+              </span>
+          </label>
+          <button type="submit" class="group-invalid:pointer-events-none group-invalid:opacity-30 mt-5 bg-blue-500 py-3 rounded-md text-white">Submit</button>
+        </form>
+      </main>
+</body>
+</html>
